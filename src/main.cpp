@@ -31,10 +31,10 @@ auto colored_hist(
     const auto delta = range[1] - range[0];
     const auto bin_width = delta / n_bins;
 
-    auto bin_edges = xt::pytensor<float, 1>::from_shape({n_bins + 1});
+    auto bin_edges = xt::pytensor<float, 1>::from_shape({long(n_bins + 1)});
     
-    auto bin_count = xt::pytensor<float, 1>::from_shape({n_bins});
-    auto bin_mean = xt::pytensor<float, 1>::from_shape({n_bins});
+    auto bin_count = xt::pytensor<float, 1>::from_shape({long(n_bins)});
+    auto bin_mean = xt::pytensor<float, 1>::from_shape({long(n_bins)});
     std::fill(bin_count.begin(), bin_count.end(), 0.0);
     std::fill(bin_mean.begin(), bin_mean.end(), 0.0);
     for(auto i=0; i <= n_bins; ++i)
